@@ -1,0 +1,6 @@
+/.vs
+/Nastran.DataService/obj
+/Nastran.DataService/bin
+/Nastran.Web/obj
+/Nastran.Web/bin
+/Nastran.Web/*.user

@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Nastran Admin</title>
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/admin/Css/fontawesome.css" />
+    <link rel="stylesheet" href="~/admin/Css/flag-icon.css" />
+    <link rel="stylesheet" href="~/admin/Css/icofont.css" />
+    <link rel="stylesheet" href="~/admin/Css/dropzone.css" />
+    <link rel="stylesheet" href="~/admin/Css/datatables.css" />
+    <link rel="stylesheet" href="~/admin/Css/prism.css" />
+    <link rel="stylesheet" href="~/admin/Css/bootstrap.css" />
+    <link rel="stylesheet" href="~/admin/Css/chosen.min.css" />
+    <link rel="stylesheet" href="~/admin/Css/admin.css" />
+</head>
+<body>
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper">
+
+        <!-- Page Header Start-->
+        <div class="page-main-header">
+            <div class="main-header-right row">
+                <div class="main-header-left d-lg-none">
+                    <div class="logo-wrapper"><a href=""><img class="blur-up lazyloaded" width="90" src="~/admin/images/dashborad/sttorolog.jpg" alt="Storo logo"></a></div>
+                </div>
+                <div class="mobile-sidebar">
+                    <div class="media-body text-right switch-sm">
+                        <label class="switch"><a href="#"><i id="sidebar-toggle" data-feather="align-left"></i></a></label>
+                    </div>
+                </div>
+                <div class="nav-right col">
+                    <ul class="nav-menus">
+                        <li>
+                        </li>
+                        <li></li>
+                        <li class="onhover-dropdown">
+
+                        </li>
+                        <li class="onhover-dropdown">
+
+                        </li>
+                        <li></li>
+                        <li class="onhover-dropdown">
+                            <div class="media align-items-center">
+                                <img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="~/admin/images/dashborad/profile.png" alt="header-user">
+                                <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+                            </div>
+                            <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
+                                @using (Html.BeginForm("LogOff", "Accounts", FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i data-feather="log-out"></i>Logout</a></li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header Ends -->
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+
+            <!-- Page Sidebar Start-->
+            <div class="page-sidebar">
+                <div class="main-header-left d-none d-lg-block">
+                    <div class="logo-wrapper"><a href="#"><img class="blur-up lazyloaded" width="90" src="~/admin/images/dashborad/sttorolog.jpg" alt="sttoro logo"></a></div>
+                </div>
+                <div class="sidebar custom-scrollbar">
+                    <ul class="sidebar-menu">
+                        <li><a class="sidebar-header" href="/Admin/Dashboard/Index"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Sales</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/Dashboard/Sales"><i class="fa fa-circle"></i>New orders</a></li>
+                                <li><a href="~/Admin/Dashboard/CompletedSales"><i class="fa fa-circle"></i>Completed orders</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href="#"><i data-feather="align-left"></i><span>Menu</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Category</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="~/Admin/Categories/Index"><i class="fa fa-circle"></i>List</a></li>
+                                        <li><a href="~/Admin/Categories/Create"><i class="fa fa-circle"></i>New category</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Sub category</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="~/Admin/SubCategories/Index"><i class="fa fa-circle"></i>List</a></li>
+                                        <li><a href="~/Admin/SubCategories/Create"><i class="fa fa-circle"></i>New sub category</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Products</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Products</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="~/Admin/Products/Index"><i class="fa fa-circle"></i>List</a></li>
+                                        <li><a href="~/Admin/Products/FeaturedProducts"><i class="fa fa-circle"></i>Featured products</a></li>
+                                        <li><a href="~/Admin/Products/TodaysList"><i class="fa fa-circle"></i>Today's special products</a></li>
+                                        <li><a href="~/Admin/Products/FrshItem"><i class="fa fa-circle"></i>Fresh items products</a></li>
+                                        <li><a href="~/Admin/Products/CreateGarment"><i class="fa fa-circle"></i>New garment products</a></li>
+                                        <li><a href="~/Admin/Products/CreateGeneral"><i class="fa fa-circle"></i>New general products</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Stock</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="~/Admin/Products/Stock"><i class="fa fa-circle"></i>List</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Products types</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/ProductTypes/Index"><i class="fa fa-circle"></i>List</a></li>
+                                <li><a href="~/Admin/ProductTypes/Create"><i class="fa fa-circle"></i>New products types</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Brands</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/Brands/Index"><i class="fa fa-circle"></i>List</a></li>
+                                <li><a href="~/Admin/Brands/Create"><i class="fa fa-circle"></i>New brand </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Colors</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/Colors/Index"><i class="fa fa-circle"></i>List</a></li>
+                                <li><a href="~/Admin/Colors/Create"><i class="fa fa-circle"></i>New color </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Sizes</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/Sizes/Index"><i class="fa fa-circle"></i>List</a></li>
+                                <li><a href="~/Admin/Sizes/Create"><i class="fa fa-circle"></i>New size </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Slider</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="~/Admin/SiteSilders/Index"><i class="fa fa-circle"></i>List</a></li>
+                                <li><a href="~/Admin/SiteSilders/Create"><i class="fa fa-circle"></i>New Slide </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Page Sidebar Ends-->
+            <div class="page-body">
+                @RenderBody()
+            </div>
+
+            <!-- footer start-->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 footer-copyright">
+                            <p class="mb-0">Copyright @DateTime.Now.Year © Codembeded All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end-->
+        </div>
+
+    </div>
+    <script src="~/admin/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/plugins/ajax-mail.js"></script>
+    <script src="~/admin/js/popper.min.js"></script>
+    <script src="~/admin/js/bootstrap.js"></script>
+    <script src="~/admin/js/chosen.jquery.min.js"></script>
+    <script src="~/admin/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/admin/js/icons/feather-icon/feather-icon.js"></script>
+    <script src="~/admin/js/sidebar-menu.js"></script>
+    <script src="~/admin/js/datatables/datatables.min.js"></script>
+    <script src="~/admin/js/datatables/custom-basic.js"></script>
+    <script src="~/admin/js/lazysizes.min.js"></script>
+    <script src="~/admin/js/prism/prism.min.js"></script>
+    <script src="~/admin/js/clipboard/clipboard.min.js"></script>
+    <script src="~/admin/js/custom-card/custom-card.js"></script>
+    <script src="~/admin/js/counter/jquery.waypoints.min.js"></script>
+    <script src="~/admin/js/counter/jquery.counterup.min.js"></script>
+    <script src="~/admin/js/counter/counter-custom.js"></script>
+    <script src="~/admin/js/chat-menu.js"></script>
+    <script src="~/admin/js/height-equal.js"></script>
+    <script src="~/admin/js/lazysizes.min.js"></script>
+    <script src="~/admin/js/admin-script.js"></script>
+    @RenderSection("scripts", required: false)
+    <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('Description');
+        $('.chosen-product-sizes-dropdown').chosen({
+            placeholder_text_multiple: "Select sizes"
+        });
+        $('.chosen-product-colors-dropdown').chosen({
+            placeholder_text_multiple: "Select colors"
+        });
+    </script>
+</body>
+</html>

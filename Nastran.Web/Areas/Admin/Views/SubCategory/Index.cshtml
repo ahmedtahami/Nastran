@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Nastran.DataService.DbEntities.SubCategory>
+@{
+    ViewBag.Title = "SubCategories";
+}
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>
+                        SubCategories
+                        <small>Storo Admin panel</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">SubCategories</li>
+                    <li class="breadcrumb-item active">List</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex">
+                    <div class="col-md-6"><h5>SubCategories List</h5></div>
+                    <div class="col-md-6">
+                        @*<button type="button" class="btn btn-primary pull-right" onclick="location.href='@Url.Action("Create")'">Add SubCategory</button>*@
+                        <button type="button" class="btn btn-primary pull-right"
+                                data-toggle="ajax-modal" data-target="#addSubCategory" data-url="@Url.Action("Create")">
+                            Add SubCategory
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div class="card-body">
+                        <table class="display" id="basic-1">
+                            <thead>
+                                <tr>
+                                    <th>Sr no</th>
+                                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                                    <th>@Html.DisplayNameFor(model => model.isActive)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var index = 1;
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@index</td>
+                                        <td>@Html.DisplayFor(model => item.Name)</td>
+                                        <td>@Html.DisplayFor(model => item.Description)</td>
+                                        <td>
+                                            @if (item.isActive == true)
+                                            {
+                                                @:<i class="fa fa-circle font-success f-12"></i>
+                                            }
+                                            else
+                                            {
+                                                @:<i class="fa fa-circle font-danger f-12"></i>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <i class="fa fa-edit mr-2 font-success" onclick="location.href='@Url.Action("Edit")/@item.Id'"></i>
+                                                <i class="fa fa-trash font-danger" onclick="location.href='@Url.Action("Delete")/@item.Id'"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    index++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+<div id="modalElement">
+</div>
